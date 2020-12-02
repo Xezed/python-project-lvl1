@@ -14,13 +14,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
-        with: 
-          poetry-version: 1.1.2
+      - uses: abatilo/actions-poetry@v2.0.0
 
       - name: install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          make install
+        run: make install
 
-      - name: Run a one-line script
+      - name: linting
         run: make lint
