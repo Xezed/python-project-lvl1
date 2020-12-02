@@ -4,8 +4,11 @@ install:
 build:
 	poetry build
 
-make brain-games:
+brain-games:
 	poetry run brain-games
+
+brain-even:
+	poetry run brain-even
 
 package-install:
 	pip3 install --user dist/*.whl
