@@ -2,3 +2,5 @@
 ![Actions Status](https://github.com/Xezed/python-project-lvl1/workflows/hexlet-check/badge.svg)
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
 ![Actions Status](https://github.com/Xezed/python-project-lvl1/workflows/Linter/badge.svg)
+
+[![asciicast](https://asciinema.org/a/WUQPBt98BCvdoNqu4oXdGrD6C.svg)](https://asciinema.org/a/WUQPBt98BCvdoNqu4oXdGrD6C)
