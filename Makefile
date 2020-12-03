@@ -13,6 +13,9 @@ brain-calc:
 brain-gcd:
 	poetry run brain-games -n 'brain-gcd'
 
+brain-progression:
+	poetry run brain-games -n 'brain-progression'
+
 package-install:
 	pip3 install --user dist/*.whl
 
