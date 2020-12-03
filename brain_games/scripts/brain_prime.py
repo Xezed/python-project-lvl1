@@ -18,4 +18,3 @@ def get_correct_answer(number_as_string):
         if number % i == 0:
             return 'no'
     return 'yes'
-

@@ -1,6 +1,7 @@
 import prompt
 
-from brain_games.scripts import brain_calc, brain_even, brain_gcd, brain_prime, brain_progression
+from brain_games.scripts import brain_calc, brain_even, brain_gcd, \
+    brain_prime, brain_progression
 
 GAMES = {
     'brain-even': {

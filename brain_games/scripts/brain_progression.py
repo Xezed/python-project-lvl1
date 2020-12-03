@@ -27,12 +27,17 @@ def get_correct_answer(progression_string):
         except ValueError:
             unknown_number_index = index
 
-    # if unknown number in the left part of progression
+    # if unknown number in the left hand side of progression
     if unknown_number_index < len(progression_list) / 2:
-        progression_step = progression_list[unknown_number_index + 2] - progression_list[unknown_number_index + 1]
-        progression_list[unknown_number_index] = progression_list[unknown_number_index + 1] - progression_step
+        progression_step = progression_list[unknown_number_index + 2] - \
+                           progression_list[unknown_number_index + 1]
+        progression_list[unknown_number_index] = \
+            progression_list[unknown_number_index + 1] - progression_step
+    # otherwise in the right hand side
     else:
-        progression_step = progression_list[unknown_number_index - 1] - progression_list[unknown_number_index - 2]
-        progression_list[unknown_number_index] = progression_list[unknown_number_index - 1] + progression_step
+        progression_step = progression_list[unknown_number_index - 1] - \
+                           progression_list[unknown_number_index - 2]
+        progression_list[unknown_number_index] = \
+            progression_list[unknown_number_index - 1] + progression_step
 
     return str(progression_list[unknown_number_index])
