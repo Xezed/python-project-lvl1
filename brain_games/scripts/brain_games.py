@@ -1,6 +1,6 @@
 import prompt
 
-from brain_games.scripts import brain_calc, brain_even
+from brain_games.scripts import brain_calc, brain_even, brain_gcd
 
 GAMES = {
     'brain-even': {
@@ -12,6 +12,11 @@ GAMES = {
         'get_question': brain_calc.get_question,
         'print_rules': brain_calc.print_rules,
         'get_correct_answer': brain_calc.get_correct_answer,
+    },
+    'brain-gcd': {
+        'get_question': brain_gcd.get_question,
+        'print_rules': brain_gcd.print_rules,
+        'get_correct_answer': brain_gcd.get_correct_answer,
     },
 }
 

@@ -10,6 +10,9 @@ brain-even:
 brain-calc:
 	poetry run brain-games -n 'brain-calc'
 
+brain-gcd:
+	poetry run brain-games -n 'brain-gcd'
+
 package-install:
 	pip3 install --user dist/*.whl
 
