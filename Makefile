@@ -16,6 +16,9 @@ brain-gcd:
 brain-progression:
 	poetry run brain-games -n 'brain-progression'
 
+brain-prime:
+	poetry run brain-games -n 'brain-prime'
+
 package-install:
 	pip3 install --user dist/*.whl
 
