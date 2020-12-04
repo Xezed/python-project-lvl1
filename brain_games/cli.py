@@ -33,3 +33,24 @@ def cli():
     args = parser.parse_args()
 
     main(args.name)
+
+
+# Functions below implemented to pass tests.
+def brain_even():
+    main('brain-even')
+
+
+def brain_calc():
+    main('brain-calc')
+
+
+def brain_gcd():
+    main('brain-gcd')
+
+
+def brain_progression():
+    main('brain-progression')
+
+
+def brain_prime():
+    main('brain-prime')
