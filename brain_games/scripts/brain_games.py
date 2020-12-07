@@ -46,7 +46,7 @@ def play_game(username, game_name):
 
         game_function_set['print_rules']()
         user_answer = prompt.string(f'Question: {question} ')
-        print(f'Your answer: {username}')
+        print(f'Your answer: {user_answer}')
         correct_answer = game_function_set['get_correct_answer'](question)
 
         if user_answer == correct_answer:
