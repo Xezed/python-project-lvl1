@@ -2,6 +2,12 @@ import random
 
 from simpleeval import simple_eval
 
+from brain_games.games.play_game import play_game
+
+
+def main():
+    play_game(get_question, print_rules, get_correct_answer)
+
 
 def get_question():
     first_operand = random.randint(0, 20)

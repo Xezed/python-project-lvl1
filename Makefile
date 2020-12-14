@@ -5,19 +5,19 @@ build:
 	poetry build
 
 brain-even:
-	poetry run brain-games -n 'brain-even'
+	poetry run brain-even
 
 brain-calc:
-	poetry run brain-games -n 'brain-calc'
+	poetry run brain-calc
 
 brain-gcd:
-	poetry run brain-games -n 'brain-gcd'
+	poetry run brain-gcd
 
 brain-progression:
-	poetry run brain-games -n 'brain-progression'
+	poetry run brain-progression
 
 brain-prime:
-	poetry run brain-games -n 'brain-prime'
+	poetry run brain-prime
 
 package-install:
 	pip3 install --user dist/*.whl
