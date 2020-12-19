@@ -47,3 +47,7 @@ def get_correct_answer(progression_string):
             progression_list[unknown_number_index - 1] + progression_step
 
     return str(progression_list[unknown_number_index])
+
+
+if __name__ == '__main__':
+    main()

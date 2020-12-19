@@ -25,3 +25,7 @@ def get_correct_answer(arithmetic_operation):
     int_result = simple_eval(arithmetic_operation)
     str_result = str(int_result)
     return str_result
+
+
+if __name__ == '__main__':
+    main()

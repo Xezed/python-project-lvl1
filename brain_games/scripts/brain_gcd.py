@@ -24,3 +24,7 @@ def get_correct_answer(string_of_numbers):
     first_num_int, second_num_int = int(first_num_str), int(second_num_str)
 
     return str(gcd(first_num_int, second_num_int))
+
+
+if __name__ == '__main__':
+    main()

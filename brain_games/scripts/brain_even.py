@@ -22,3 +22,7 @@ def print_rules():
 def get_question():
     random_integer = randint(0, 100)
     return random_integer
+
+
+if __name__ == '__main__':
+    main()
