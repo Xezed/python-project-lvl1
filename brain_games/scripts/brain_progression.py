@@ -1,35 +1,52 @@
-import prompt
+import random
 
-from brain_games.games.brain_progression import get_correct_answer, \
-    get_question, \
-    print_rules
-from brain_games.games.welcome_user import welcome_user
+from brain_games.games.play_game import play_game
 
 
 def main():
-    correct_answers_amount = 0
-    username = welcome_user()
+    play_game(get_question, print_rules, get_correct_answer)
 
-    while correct_answers_amount != 3:
-        question = get_question()
 
-        print_rules()
-        user_answer = prompt.string(f'Question: {question} ')
-        print(f'Your answer: {user_answer}')
-        correct_answer = get_correct_answer(question)
+def get_question():
+    initial_number = random.randint(0, 10)
+    step = random.randint(1, 6)
 
-        if user_answer == correct_answer:
-            correct_answers_amount += 1
-            print('Correct!')
-        else:
-            print(f'\'{user_answer}\' is wrong answer ;(.'
-                  f' Correct answer was \'{correct_answer}\'.')
-            print(f'Let\'s try again, {username}!')
+    progression = [initial_number]
+    for _ in range(1, 10):
+        progression.append(progression[-1] + step)
 
-            # streak has been ended
-            correct_answers_amount = 0
+    progression[random.randint(0, 9)] = '..'
 
-    print(f'Congratulations, {username}!')
+    return ' '.join(str(number) for number in progression)
+
+
+def print_rules():
+    print('What number is missing in the progression?')
+
+
+def get_correct_answer(progression_string):
+    unknown_number_index = None
+    progression_list = progression_string.split(' ')
+    for index, number in enumerate(progression_string.split(' ')):
+        try:
+            progression_list[index] = int(number)
+        except ValueError:
+            unknown_number_index = index
+
+    # if unknown number in the left hand side of progression
+    if unknown_number_index < len(progression_list) / 2:
+        progression_step = progression_list[unknown_number_index + 2] - \
+                           progression_list[unknown_number_index + 1]
+        progression_list[unknown_number_index] = \
+            progression_list[unknown_number_index + 1] - progression_step
+    # otherwise in the right hand side
+    else:
+        progression_step = progression_list[unknown_number_index - 1] - \
+                           progression_list[unknown_number_index - 2]
+        progression_list[unknown_number_index] = \
+            progression_list[unknown_number_index - 1] + progression_step
+
+    return str(progression_list[unknown_number_index])
 
 
 if __name__ == '__main__':

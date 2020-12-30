@@ -1,34 +1,27 @@
-import prompt
+from random import randint
 
-from brain_games.games.brain_even import get_correct_answer, get_question, \
-    print_rules
-from brain_games.games.welcome_user import welcome_user
+from brain_games.games.play_game import play_game
 
 
 def main():
-    correct_answers_amount = 0
-    username = welcome_user()
+    play_game(get_question, print_rules, get_correct_answer)
 
-    while correct_answers_amount != 3:
-        question = get_question()
 
-        print_rules()
-        user_answer = prompt.string(f'Question: {question} ')
-        print(f'Your answer: {user_answer}')
-        correct_answer = get_correct_answer(question)
+def get_correct_answer(number):
+    # is odd
+    if int(number) % 2:
+        return 'no'
+    # is even
+    return 'yes'
 
-        if user_answer == correct_answer:
-            correct_answers_amount += 1
-            print('Correct!')
-        else:
-            print(f'\'{user_answer}\' is wrong answer ;(.'
-                  f' Correct answer was \'{correct_answer}\'.')
-            print(f'Let\'s try again, {username}!')
 
-            # streak has been ended
-            correct_answers_amount = 0
+def print_rules():
+    print('Answer "yes" if the number is even, otherwise answer "no".')
 
-    print(f'Congratulations, {username}!')
+
+def get_question():
+    random_integer = randint(0, 100)
+    return random_integer
 
 
 if __name__ == '__main__':

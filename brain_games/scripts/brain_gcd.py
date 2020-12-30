@@ -1,34 +1,29 @@
-import prompt
+import random
+from math import gcd
 
-from brain_games.games.brain_gcd import get_correct_answer, get_question, \
-    print_rules
-from brain_games.games.welcome_user import welcome_user
+from brain_games.games.play_game import play_game
 
 
 def main():
-    correct_answers_amount = 0
-    username = welcome_user()
+    play_game(get_question, print_rules, get_correct_answer)
 
-    while correct_answers_amount != 3:
-        question = get_question()
 
-        print_rules()
-        user_answer = prompt.string(f'Question: {question} ')
-        print(f'Your answer: {user_answer}')
-        correct_answer = get_correct_answer(question)
+def get_question():
+    first_num = random.randint(0, 20)
+    second_num = random.randint(0, 20)
 
-        if user_answer == correct_answer:
-            correct_answers_amount += 1
-            print('Correct!')
-        else:
-            print(f'\'{user_answer}\' is wrong answer ;(.'
-                  f' Correct answer was \'{correct_answer}\'.')
-            print(f'Let\'s try again, {username}!')
+    return f'{first_num} {second_num}'
 
-            # streak has been ended
-            correct_answers_amount = 0
 
-    print(f'Congratulations, {username}!')
+def print_rules():
+    print('Find the greatest common divisor of given numbers.')
+
+
+def get_correct_answer(string_of_numbers):
+    first_num_str, second_num_str = string_of_numbers.split(' ')
+    first_num_int, second_num_int = int(first_num_str), int(second_num_str)
+
+    return str(gcd(first_num_int, second_num_int))
 
 
 if __name__ == '__main__':
