@@ -6,6 +6,7 @@ from brain_games.games.welcome_user import welcome_user
 def play_game(get_question, print_rules, get_correct_answer):
     correct_answers_amount = 0
     username = welcome_user()
+
     print_rules()
 
     while correct_answers_amount != 3:
