@@ -4,20 +4,18 @@ from brain_games.games.welcome_user import welcome_user
 
 
 def play_game(get_question, print_rules, get_correct_answer):
-    correct_answers_amount = 0
     username = welcome_user()
 
     print_rules()
 
-    while correct_answers_amount != 3:
+    for _ in range(3):
         question = get_question()
-
         print(f'Question: {question}')
+
         user_answer = prompt.string('Your answer: ')
         correct_answer = get_correct_answer(question)
 
         if user_answer == correct_answer:
-            correct_answers_amount += 1
             print('Correct!')
         else:
             print(f'\'{user_answer}\' is wrong answer ;(.'
@@ -25,5 +23,5 @@ def play_game(get_question, print_rules, get_correct_answer):
             print(f'Let\'s try again, {username}!')
             break
 
-    if correct_answers_amount == 3:
+    else:
         print(f'Congratulations, {username}!')
