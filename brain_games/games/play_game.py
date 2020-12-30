@@ -23,8 +23,7 @@ def play_game(get_question, print_rules, get_correct_answer):
             print(f'\'{user_answer}\' is wrong answer ;(.'
                   f' Correct answer was \'{correct_answer}\'.')
             print(f'Let\'s try again, {username}!')
+            break
 
-            # streak has been ended
-            correct_answers_amount = 0
-
-    print(f'Congratulations, {username}!')
+    if correct_answers_amount == 3:
+        print(f'Congratulations, {username}!')
