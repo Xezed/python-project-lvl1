@@ -1,10 +1,11 @@
 import prompt
 
-from brain_games.games.welcome_user import welcome_user
-
 
 def play_game(get_question, print_rules, get_correct_answer):
-    username = welcome_user()
+    print('Welcome to the Brain Games!')
+
+    username = prompt.string('May I have your name? ')
+    print(f'Hello, {username}!')
 
     print_rules()
 

@@ -1,8 +1,11 @@
-from brain_games.games.welcome_user import welcome_user
+import prompt
 
 
 def main():
-    welcome_user()
+    print('Welcome to the Brain Games!')
+
+    username = prompt.string('May I have your name? ')
+    print(f'Hello, {username}!')
 
 
 if __name__ == '__main__':
