@@ -2,9 +2,11 @@ import random
 
 from brain_games.games.play_game import play_game
 
+RULES = 'What number is missing in the progression?'
+
 
 def play_brain_progression():
-    play_game(get_question, print_rules, get_correct_answer)
+    play_game(get_question, RULES, get_correct_answer)
 
 
 def get_question():
@@ -18,10 +20,6 @@ def get_question():
     progression[random.randint(0, 9)] = '..'
 
     return ' '.join(str(number) for number in progression)
-
-
-def print_rules():
-    print('What number is missing in the progression?')
 
 
 def get_correct_answer(progression_string):

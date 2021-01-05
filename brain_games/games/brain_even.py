@@ -2,9 +2,11 @@ from random import randint
 
 from brain_games.games.play_game import play_game
 
+RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
+
 
 def play_brain_even():
-    play_game(get_question, print_rules, get_correct_answer)
+    play_game(get_question, RULES, get_correct_answer)
 
 
 def get_correct_answer(number):
@@ -13,10 +15,6 @@ def get_correct_answer(number):
         return 'no'
     # is even
     return 'yes'
-
-
-def print_rules():
-    print('Answer "yes" if the number is even, otherwise answer "no".')
 
 
 def get_question():

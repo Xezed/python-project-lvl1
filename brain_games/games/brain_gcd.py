@@ -3,9 +3,11 @@ from math import gcd
 
 from brain_games.games.play_game import play_game
 
+RULES = 'Find the greatest common divisor of given numbers.'
+
 
 def play_brain_gcd():
-    play_game(get_question, print_rules, get_correct_answer)
+    play_game(get_question, RULES, get_correct_answer)
 
 
 def get_question():
@@ -13,10 +15,6 @@ def get_question():
     second_num = random.randint(0, 20)
 
     return f'{first_num} {second_num}'
-
-
-def print_rules():
-    print('Find the greatest common divisor of given numbers.')
 
 
 def get_correct_answer(string_of_numbers):

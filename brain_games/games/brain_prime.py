@@ -2,18 +2,16 @@ import random
 
 from brain_games.games.play_game import play_game
 
+RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+
 
 def play_brain_prime():
-    play_game(get_question, print_rules, get_correct_answer)
+    play_game(get_question, RULES, get_correct_answer)
 
 
 def get_question():
     number = random.randint(0, 100)
     return f'{number}'
-
-
-def print_rules():
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
 
 
 def get_correct_answer(number_as_string):
