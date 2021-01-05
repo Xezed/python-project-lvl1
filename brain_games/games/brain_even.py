@@ -6,7 +6,9 @@ RULES = 'Answer "yes" if the number is even, otherwise answer "no".'
 
 
 def play_brain_even():
-    play_game(get_question, RULES, get_correct_answer)
+    question = get_question()
+    answer = get_correct_answer(question)
+    play_game(RULES, question, answer)
 
 
 def get_correct_answer(number):

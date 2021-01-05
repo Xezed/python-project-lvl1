@@ -7,7 +7,9 @@ RULES = 'Find the greatest common divisor of given numbers.'
 
 
 def play_brain_gcd():
-    play_game(get_question, RULES, get_correct_answer)
+    question = get_question()
+    answer = get_correct_answer(question)
+    play_game(RULES, question, answer)
 
 
 def get_question():
