@@ -1,18 +1,15 @@
 import random
 
-from brain_games.games.play_game import play_game
+from brain_games.engine import play_game
 
 RULES = 'What number is missing in the progression?'
 
 
 def play_brain_progression():
-    question = get_question()
-    answer = get_correct_answer(question)
-
-    play_game(RULES, question, answer)
+    play_game(RULES, get_question_with_answer)
 
 
-def get_question():
+def get_question_with_answer() -> tuple:
     initial_number = random.randint(0, 10)
     step = random.randint(1, 6)
 
@@ -22,7 +19,10 @@ def get_question():
 
     progression[random.randint(0, 9)] = '..'
 
-    return ' '.join(str(number) for number in progression)
+    question = ' '.join(str(number) for number in progression)
+    answer = get_correct_answer(question)
+
+    return question, answer
 
 
 def get_correct_answer(progression_string):

@@ -1,19 +1,18 @@
 import random
 
-from brain_games.games.play_game import play_game
+from brain_games.engine import play_game
 
 RULES = 'Answer "yes" if given number is prime. Otherwise answer "no".'
 
 
 def play_brain_prime():
-    question = get_question()
-    answer = get_correct_answer(question)
-    play_game(RULES, question, answer)
+    play_game(RULES, get_question_with_answer)
 
 
-def get_question():
+def get_question_with_answer() -> tuple:
     number = random.randint(0, 100)
-    return f'{number}'
+    answer = get_correct_answer(number)
+    return number, answer
 
 
 def get_correct_answer(number_as_string):

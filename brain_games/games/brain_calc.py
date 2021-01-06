@@ -1,30 +1,26 @@
 import random
 
-from brain_games.games.play_game import play_game
+from brain_games.engine import play_game
 
 RULES = 'What is the result of the expression?'
 
 
 def play_brain_calc():
-    question = get_question()
-    answer = get_correct_answer(question)
-    play_game(RULES, question, answer)
+    play_game(RULES, get_question_with_answer)
 
 
-def get_question():
+def get_question_with_answer() -> tuple:
     first_operand = random.randint(0, 20)
     second_operand = random.randint(0, 20)
     arithmetic_operation = random.choice('-+*')
 
-    return f'{first_operand} {arithmetic_operation} {second_operand}'
+    question = f'{first_operand} {arithmetic_operation} {second_operand}'
+    answer = get_correct_answer(first_operand, arithmetic_operation, second_operand)
+
+    return question, answer
 
 
-def get_correct_answer(expression):
-    # to follow the same logic as per other games. Surely we could avoid it.
-    expr_without_spaces = expression.replace(' ', '')
-    first_operand, arithmetic_operation, second_operand = expr_without_spaces
-    first_operand, second_operand = int(first_operand), int(second_operand)
-
+def get_correct_answer(first_operand, arithmetic_operation, second_operand):
     if arithmetic_operation == '*':
         result = first_operand * second_operand
     elif arithmetic_operation == '+':
@@ -34,4 +30,4 @@ def get_correct_answer(expression):
     else:
         raise ValueError('Unsupported operation')
 
-    return result
+    return str(result)

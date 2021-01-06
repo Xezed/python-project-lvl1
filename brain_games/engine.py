@@ -1,7 +1,7 @@
 import prompt
 
 
-def play_game(rules, question, correct_answer):
+def play_game(rules, get_question_wth_answer):
     print('Welcome to the Brain Games!')
 
     username = prompt.string('May I have your name? ')
@@ -10,6 +10,7 @@ def play_game(rules, question, correct_answer):
     print(rules)
 
     for _ in range(3):
+        question, correct_answer = get_question_wth_answer()
         print(f'Question: {question}')
 
         user_answer = prompt.string('Your answer: ')

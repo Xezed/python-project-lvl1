@@ -1,26 +1,24 @@
 import random
 from math import gcd
 
-from brain_games.games.play_game import play_game
+from brain_games.engine import play_game
 
 RULES = 'Find the greatest common divisor of given numbers.'
 
 
 def play_brain_gcd():
-    question = get_question()
-    answer = get_correct_answer(question)
-    play_game(RULES, question, answer)
+    play_game(RULES, get_question_with_answer)
 
 
-def get_question():
+def get_question_with_answer() -> tuple:
     first_num = random.randint(0, 20)
     second_num = random.randint(0, 20)
 
-    return f'{first_num} {second_num}'
+    answer = get_correct_answer(first_num, second_num)
+
+    return f'{first_num} {second_num}', answer
 
 
-def get_correct_answer(string_of_numbers):
-    first_num_str, second_num_str = string_of_numbers.split(' ')
-    first_num_int, second_num_int = int(first_num_str), int(second_num_str)
+def get_correct_answer(first_num, second_num):
 
-    return str(gcd(first_num_int, second_num_int))
+    return str(gcd(first_num, second_num))
