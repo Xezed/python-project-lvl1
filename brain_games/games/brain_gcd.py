@@ -1,5 +1,4 @@
 import random
-from math import gcd
 
 from brain_games.engine import play_game
 
@@ -19,6 +18,9 @@ def get_question_with_answer() -> tuple:
     return f'{first_num} {second_num}', answer
 
 
-def get_correct_answer(first_num, second_num):
+def get_correct_answer(first_num, second_num) -> str:
+    """Greatest common divisor"""
+    while second_num:
+        first_num, second_num = second_num, first_num % second_num
 
-    return str(gcd(first_num, second_num))
+    return str(first_num)

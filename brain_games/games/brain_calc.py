@@ -15,7 +15,8 @@ def get_question_with_answer() -> tuple:
     arithmetic_operation = random.choice('-+*')
 
     question = f'{first_operand} {arithmetic_operation} {second_operand}'
-    answer = get_correct_answer(first_operand, arithmetic_operation, second_operand)
+    answer = get_correct_answer(first_operand, arithmetic_operation,
+                                second_operand)
 
     return question, answer
 
