@@ -1,5 +1,7 @@
 import prompt
 
+AMOUNT_OF_ROUNDS = 3
+
 
 def play_game(rules, get_question_wth_answer):
     print('Welcome to the Brain Games!')
@@ -9,7 +11,7 @@ def play_game(rules, get_question_wth_answer):
 
     print(rules)
 
-    for _ in range(3):
+    for _ in range(AMOUNT_OF_ROUNDS):
         question, correct_answer = get_question_wth_answer()
         print(f'Question: {question}')
 

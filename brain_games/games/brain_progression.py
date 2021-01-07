@@ -14,39 +14,18 @@ def get_question_with_answer() -> tuple:
     step = random.randint(1, 6)
 
     progression = [initial_number]
-    for _ in range(1, 10):
-        progression.append(progression[-1] + step)
 
-    progression[random.randint(0, 9)] = '..'
+    progression_length = 10
+
+    # first element in the list already
+    for _ in range(1, progression_length):
+        last_element = progression[-1]
+        progression.append(last_element + step)
+
+    unknown_number_index = random.randint(0, 9)
+    progression[unknown_number_index] = '..'
 
     question = ' '.join(str(number) for number in progression)
-    answer = get_correct_answer(question)
+    answer = initial_number + step * unknown_number_index
 
     return question, answer
-
-
-def get_correct_answer(progression_string):
-    unknown_number_index = None
-    progression_list = progression_string.split(' ')
-    for index, number in enumerate(progression_string.split(' ')):
-        try:
-            progression_list[index] = int(number)
-        except ValueError:
-            unknown_number_index = index
-
-    # if unknown number in the left hand side of progression
-    if unknown_number_index < len(progression_list) / 2:
-        progression_step = \
-            progression_list[unknown_number_index + 2] - \
-            progression_list[unknown_number_index + 1]
-        progression_list[unknown_number_index] = \
-            progression_list[unknown_number_index + 1] - progression_step
-    # otherwise in the right hand side
-    else:
-        progression_step = \
-            progression_list[unknown_number_index - 1] - \
-            progression_list[unknown_number_index - 2]
-        progression_list[unknown_number_index] = \
-            progression_list[unknown_number_index - 1] + progression_step
-
-    return str(progression_list[unknown_number_index])
