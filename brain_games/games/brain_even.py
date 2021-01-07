@@ -11,13 +11,12 @@ def play_brain_even():
 
 def get_question_with_answer() -> tuple:
     random_integer = randint(0, 100)
-    answer = get_correct_answer(random_integer)
+    answer = 'yes' if is_even(random_integer) else 'no'
     return random_integer, answer
 
 
-def get_correct_answer(number):
-    # is odd
+def is_even(number):
     if int(number) % 2:
-        return 'no'
-    # is even
-    return 'yes'
+        return False
+    else:
+        return True

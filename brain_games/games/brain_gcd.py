@@ -13,13 +13,12 @@ def get_question_with_answer() -> tuple:
     first_num = random.randint(0, 20)
     second_num = random.randint(0, 20)
 
-    answer = get_correct_answer(first_num, second_num)
+    answer = get_greatest_common_divisor(first_num, second_num)
 
     return f'{first_num} {second_num}', answer
 
 
-def get_correct_answer(first_num, second_num) -> str:
-    """Greatest common divisor"""
+def get_greatest_common_divisor(first_num, second_num):
     while second_num:
         first_num, second_num = second_num, first_num % second_num
 

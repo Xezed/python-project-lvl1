@@ -11,10 +11,10 @@ def play_brain_prime():
 
 
 def get_question_with_answer() -> tuple:
-    number = random.randint(0, 100)
-    answer = 'yes' if is_prime(number) else 'no'
+    random_integer = random.randint(0, 100)
+    answer = 'yes' if is_prime(random_integer) else 'no'
 
-    return number, answer
+    return random_integer, answer
 
 
 def is_prime(n):
