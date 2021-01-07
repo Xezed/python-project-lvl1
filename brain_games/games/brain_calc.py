@@ -31,4 +31,4 @@ def get_correct_answer(first_operand, arithmetic_operation, second_operand):
     else:
         raise ValueError('Unsupported operation')
 
-    return str(result)
+    return result

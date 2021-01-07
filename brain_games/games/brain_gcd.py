@@ -23,4 +23,4 @@ def get_correct_answer(first_num, second_num) -> str:
     while second_num:
         first_num, second_num = second_num, first_num % second_num
 
-    return str(first_num)
+    return first_num
