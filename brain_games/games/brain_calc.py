@@ -2,11 +2,11 @@ import random
 
 from brain_games.engine import play_game
 
-RULES = 'What is the result of the expression?'
+GAME_DESCRIPTION = 'What is the result of the expression?'
 
 
 def play_brain_calc():
-    play_game(RULES, get_question_with_answer)
+    play_game(GAME_DESCRIPTION, get_question_with_answer)
 
 
 def get_question_with_answer() -> tuple:
@@ -15,13 +15,13 @@ def get_question_with_answer() -> tuple:
     arithmetic_operation = random.choice('-+*')
 
     question = f'{first_operand} {arithmetic_operation} {second_operand}'
-    answer = get_correct_answer(first_operand, arithmetic_operation,
-                                second_operand)
+    answer = get_correct_answer(first_operand,
+                                second_operand, arithmetic_operation)
 
-    return question, answer
+    return question, str(answer)
 
 
-def get_correct_answer(first_operand, arithmetic_operation, second_operand):
+def get_correct_answer(first_operand, second_operand, arithmetic_operation):
     if arithmetic_operation == '*':
         result = first_operand * second_operand
     elif arithmetic_operation == '+':
@@ -29,6 +29,6 @@ def get_correct_answer(first_operand, arithmetic_operation, second_operand):
     elif arithmetic_operation == '-':
         result = first_operand - second_operand
     else:
-        raise ValueError('Unsupported operation')
+        raise ValueError(f'Unsupported operation: {arithmetic_operation}')
 
     return result
